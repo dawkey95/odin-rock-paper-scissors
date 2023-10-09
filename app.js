@@ -1,10 +1,18 @@
 function game() {
+	// Array containing choices for computer
 	const gameChoices = ['Rock', 'Paper', 'Scissors'];
+
+	// Variables declared and initalised
 	let rounds = 1;
 	let playerScore = 0;
 	let computerScore = 0;
 
-	while (rounds !== 6) {
+	let userChooseRounds = parseInt(
+		prompt('How many rounds would you like to play?')
+	);
+
+	// While loop to loop over game rounds
+	while (rounds !== userChooseRounds + 1) {
 		function getComputerChoice() {
 			let index = Math.floor(Math.random() * (4 - 1) + 1) - 1;
 			let choice = gameChoices[index].toLowerCase();
@@ -51,15 +59,15 @@ function game() {
 	}
 
 	if (playerScore > computerScore) {
-		console.log(
+		alert(
 			`You Won! You got ${playerScore} points and computer got ${computerScore} points.`
 		);
 	} else if (computerScore > playerScore) {
-		console.log(
+		alert(
 			`You Lost! You got ${playerScore} points and computer got ${computerScore} points.`
 		);
 	} else {
-		console.log('Game Tied!');
+		alert('Game Tied!');
 	}
 }
 
